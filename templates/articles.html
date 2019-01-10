@@ -3,8 +3,10 @@
 {% block body %}
   <h1>Articles</h1>
   <ul class="list-group">
-  {% for article in articles %}
-    <li class="list-group-item">{{ article.title }}
+  {% for article in articles %} <!-- boucle sur la var de la data-->
+    <li class="list-group-item"><a href="article/{{article.id}}">{{article.title}}</a></li>
   {% endfor %}
   </ul>
 {% endblock %}
+
+<!-- met le block dans le layout après la fin de boucle -->

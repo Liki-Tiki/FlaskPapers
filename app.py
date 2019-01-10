@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from data import Articless
+from data import Articless ##recupere le data dans la var
 
 app = Flask(__name__)
 app.debug=True
@@ -16,7 +16,11 @@ def about():
 
 @app.route('/articles')
 def articles():
-    return render_template('articles.html', articles = Articles)
+    return render_template('articles.html', articles = Articles) #met le stock data dans la var html
+
+@app.route('/article/<string:id>/') #route pour un article en particulier
+def article(id):
+    return render_template('article.html', id=id)
 
 if __name__ == '__main__':
     app.run()
